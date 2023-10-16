@@ -33,7 +33,7 @@ class EventController extends Controller
         return $data;
     }
     public function search(string $name){
-        return Event::where('name','like','%'.name.'%')->get();
+        return Event::where('name','like','%'.$name.'%')->get();
 
     }
     public function delete(string $id){
