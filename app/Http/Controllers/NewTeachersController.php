@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\teacher;
+use App\Models\NewTeachers;
 
-class teachers extends Controller
+class NewTeachersController extends Controller
 {
     public function store(Request $request){
 
@@ -17,34 +17,34 @@ class teachers extends Controller
             'workSchool'=>'required|string'
         ]);
 
-        teacher::create( $fillable->all());
-
-        
-
-
+        return NewTeachers::create($fillable)->all();
     }
+
+
     public function update(Request $request, String $id){
 
-        $findTeacher = teacher::find($id);
+        $findTeacher = NewTeachers::find($id);
         $findTeacher->update($request->all());
         return $findTeacher;
 
     }
     public function getall(Request $request){
         
-        return teacher::all();
+        return NewTeachers::all();
 
     }
-    public function getById(Request $request){
+    public function getById(string $id){
 
-        return teacher::find($id);
+        return NewTeachers::find($id);
 
     }
     public function delete(String $id){
-        teacher::destroye($id);
-        return teacher::all();
+
+        NewTeachers::destroye($id);
+        return NewTeachers::all();
     }
+
     public function search(string $name){
-        teacher::where('name','like','%'.$name.'%')->get();
+        return NewTeachers::where('name','like','%'.$name.'%')->get();
     }
 }

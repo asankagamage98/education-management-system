@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\AuthController;
 use App\http\Controllers\StudentController;
-use App\http\Controllers\TeacherController;
+use App\http\Controllers\NewTeachersController;
 
 
 //public route
@@ -26,10 +26,13 @@ Route::group(['middleware' => ['auth:sanctum']],function() {
 
 
     // //teacher
-    Route::post('/teacher',[TeacherController::class,'store']);
-    Route::put('/teacher/{id}'[TeacherController::class],'update');
-    Route::get('/teacher',[TeacherController::class,'all']);
-    Route::get('/teacher/search/{name}',[TeacherController::class,'search']);
-    Route::get('/teacher/{id}',[TeacherController::class],'getById');
+    Route::post('/teacher', [NewTeachersController::class,'store']);
+    Route::put('/teacher/{id}', [NewTeachersController::class,'update']);
+    Route::get('/teacher', [NewTeachersController::class,'getall']);
+    Route::get('/teacher/search/{name}', [NewTeachersController::class,'search']);
+    Route::get('/teacher/{id}', [NewTeachersController::class,'getById']);
+    
+
+    
    
 });
