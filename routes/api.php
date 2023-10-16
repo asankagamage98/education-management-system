@@ -34,6 +34,8 @@ Route::group(['middleware' => ['auth:sanctum']],function() {
     Route::delete('/teacher/{id}',[NewTeachersController::class,'delete']);
 
 
+    //non emplyee mgt
+
     
    
 });
