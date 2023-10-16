@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\AuthController;
 use App\http\Controllers\StudentController;
 use App\http\Controllers\NewTeachersController;
+use App\http\Controllers\EmployeeController;
 
 
 //public route
@@ -35,7 +36,12 @@ Route::group(['middleware' => ['auth:sanctum']],function() {
 
 
     //non emplyee mgt
-
+    Route::post('/employee',[EmployeeController::class,'store']);
+    Route::put('/employee/{id}',[EmployeeController::class,'update']);
+    Route::get('/employee',[EmployeeController::class,'getall']);
+    Route::get('/employee/{id}',[EmployeeController::class,'getById']);
+    Route::get('/employee/search/{name}',[EmployeeController::class,'search']);
+    Route::delete('/employee/{id}',[EmployeeController::class,'delete']);
     
    
 });

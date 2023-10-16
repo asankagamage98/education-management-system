@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Rsponse;
 use App\Models\Employee;
 
-class EmplyeeController extends Controller
+class EmployeeController extends Controller
 {
     public function store(Request $request){
         //validation
@@ -39,12 +39,12 @@ class EmplyeeController extends Controller
 
     }
     public function delete(string $id){
-         Employee::Destroy($id);
+         Employee::destroy($id);
          return Employee::all();
 
     }
     public function search(string $name){
-        return Employee::where('name','like','%'.name.'%')->get();
+        return Employee::where('name','like','%'.$name.'%')->get();
     }
 
 }
