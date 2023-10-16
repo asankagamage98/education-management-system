@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('age');
             $table->string('school');
             $table->string('grade');
-            $table->string('image')->nullable();
+            // $table->string('image')->nullable();
             $table->timestamps();
         });
     }

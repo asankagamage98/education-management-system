@@ -31,7 +31,8 @@ Route::group(['middleware' => ['auth:sanctum']],function() {
     Route::get('/teacher', [NewTeachersController::class,'getall']);
     Route::get('/teacher/search/{name}', [NewTeachersController::class,'search']);
     Route::get('/teacher/{id}', [NewTeachersController::class,'getById']);
-    
+    Route::delete('/teacher/{id}',[NewTeachersController::class,'delete']);
+
 
     
    
