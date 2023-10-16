@@ -6,6 +6,7 @@ use App\http\Controllers\AuthController;
 use App\http\Controllers\StudentController;
 use App\http\Controllers\NewTeachersController;
 use App\http\Controllers\EmployeeController;
+use App\http\controllers\EventController;
 
 
 //public route
@@ -42,6 +43,14 @@ Route::group(['middleware' => ['auth:sanctum']],function() {
     Route::get('/employee/{id}',[EmployeeController::class,'getById']);
     Route::get('/employee/search/{name}',[EmployeeController::class,'search']);
     Route::delete('/employee/{id}',[EmployeeController::class,'delete']);
+
+    //eventMgt
+    Route::post('/event',[EventController::class,'store']);
+    Route::put('/event/{id}',[EventController::class,'update']);
+    Route::get('/event',[EventController::class,'getall']);
+    Route::get('/event/{id}',[EventController::class,'getById']);
+    Route::get('/event/search/{name}',[EventController::class,'search']);
+    Route::delete('/event/{id}',[EventController::class,'delete']);
     
    
 });
